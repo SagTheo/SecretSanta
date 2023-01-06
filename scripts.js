@@ -14,7 +14,6 @@ add.addEventListener('click', () => {
 })
 
 
-// Needs work -> one name doesn't get picked
 ok.addEventListener('click', () => {
     names.forEach(name => {
         const namesCopy = names.slice()
@@ -27,8 +26,10 @@ ok.addEventListener('click', () => {
         })
 
         const randomIndex = Math.floor(Math.random() * namesCopy.length)
+        const pickedName = namesCopy[randomIndex]
 
-        pairs.push({name1: name, name2: namesCopy[randomIndex]})
+        pairs.push({name1: name, name2: pickedName})
+        hasBeenPicked.push(pickedName)
     })
 
     console.log(pairs)
