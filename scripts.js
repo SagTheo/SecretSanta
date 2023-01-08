@@ -1,9 +1,11 @@
 const userInput  = document.querySelector('.userInput')
 const add = document.querySelector('.add')
 const ok = document.querySelector('.ok')
-const names = []
-const hasBeenPicked = []
-const pairs = []
+const reset = document.querySelector('.reset')
+const randomDraw = document.querySelector('.randomDraw')
+let names = []
+let hasBeenPicked = []
+let pairs = []
 
 add.addEventListener('click', () => {
     if (userInput.value !== '') {
@@ -32,5 +34,17 @@ ok.addEventListener('click', () => {
         hasBeenPicked.push(pickedName)
     })
 
-    console.log(pairs)
+    pairs.forEach(pair => {
+        const currentDraw = document.createElement('li')
+        currentDraw.textContent = `${pair.name1} picked ${pair.name2}`
+        randomDraw.append(currentDraw)
+    })
+})
+
+reset.addEventListener('click', () => {
+    names = []
+    hasBeenPicked = []
+    pairs = []
+
+    randomDraw.innerHTML = ''
 })
