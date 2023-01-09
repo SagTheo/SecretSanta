@@ -3,3 +3,11 @@ body {
     color: gainsboro;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.userInput {
+    padding: 0.3rem;
+}
+
+.add, .ok, .reset {
+    cursor: pointer;
+}

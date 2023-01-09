@@ -3,12 +3,26 @@ const add = document.querySelector('.add')
 const ok = document.querySelector('.ok')
 const reset = document.querySelector('.reset')
 const randomDraw = document.querySelector('.randomDraw')
+const namesList = document.querySelector('.namesList')
 let names = []
 let hasBeenPicked = []
 let pairs = []
 
+/*
+    To do: add 'Modify' button next to each namesList item to modify the name if need be
+    ! Needs to be modified in the names array too !
+*/
+
+const capitalised = word => {
+    return word[0].toUpperCase() + word.slice(1)
+}
+
 add.addEventListener('click', () => {
     if (userInput.value !== '') {
+        const nameItem = document.createElement('li')
+        nameItem.textContent = capitalised(userInput.value)
+        namesList.append(nameItem)
+
         names.push(userInput.value)
         userInput.value = ''
         userInput.focus()
@@ -47,4 +61,5 @@ reset.addEventListener('click', () => {
     pairs = []
 
     randomDraw.innerHTML = ''
+    namesList.innerHTML = ''
 })
