@@ -19,9 +19,20 @@ const capitalised = word => {
 
 add.addEventListener('click', () => {
     if (userInput.value !== '') {
-        const nameItem = document.createElement('li')
+        const nameItemContainer = document.createElement('div')
+        const nameItem = document.createElement('span')
+        const modify = document.createElement('button')
+
         nameItem.textContent = capitalised(userInput.value)
-        namesList.append(nameItem)
+        modify.textContent = 'Modify'
+
+        modify.addEventListener('click', () => {
+            console.log(nameItem.textContent)
+        })
+        
+        nameItemContainer.append(nameItem)
+        nameItemContainer.append(modify)
+        namesList.append(nameItemContainer)
 
         names.push(userInput.value)
         userInput.value = ''
