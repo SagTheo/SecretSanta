@@ -11,3 +11,7 @@ body {
 .add, .ok, .reset {
     cursor: pointer;
 }
+
+.hidden {
+    display: none;
+}

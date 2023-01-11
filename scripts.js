@@ -27,7 +27,20 @@ add.addEventListener('click', () => {
         modify.textContent = 'Modify'
 
         modify.addEventListener('click', () => {
-            console.log(nameItem.textContent)
+            modify.disabled = true
+
+            const toModify = document.createElement('input')
+
+            nameItemContainer.append(toModify)
+            nameItem.textContent = ''
+
+            toModify.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    nameItem.textContent = capitalised(toModify.value)
+                    toModify.setAttribute('class', 'hidden')
+                    modify.disabled = false
+                }
+            })
         })
         
         nameItemContainer.append(nameItem)
