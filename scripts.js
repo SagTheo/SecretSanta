@@ -8,11 +8,6 @@ let names = []
 let hasBeenPicked = []
 let pairs = []
 
-/*
-    To do: add 'Modify' button next to each namesList item to modify the name if need be
-    ! Needs to be modified in the names array too !
-*/
-
 const capitalised = word => {
     return word[0].toUpperCase() + word.slice(1)
 }
@@ -30,8 +25,9 @@ add.addEventListener('click', () => {
             modify.disabled = true
 
             const toModify = document.createElement('input')
+            toModify.setAttribute('placeholder', 'Press enter to validate')
 
-            nameItemContainer.append(toModify)
+            nameItemContainer.prepend(toModify)
             nameItem.textContent = ''
 
             toModify.addEventListener('keydown', (e) => {
@@ -39,6 +35,9 @@ add.addEventListener('click', () => {
                     nameItem.textContent = capitalised(toModify.value)
                     toModify.setAttribute('class', 'hidden')
                     modify.disabled = false
+
+                    const index = Array.from(nameItemContainer.parentNode.children).indexOf(nameItemContainer)
+                    names.slice(index, 1, toModify.value)
                 }
             })
         })
