@@ -8,22 +8,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Secret Santa</h1>
-    <p>
-        Enter as many names as you desire (click on Add after entering a name), then click 
-        on OK to start the draw
-    </p>
-    <input type="text" class="userInput">
-    <button class="add">Add</button>
-    <button class="ok">OK</button>
+    <div class="container">
+        <h1>Secret Santa</h1>
+        <p>
+            Enter as many names as you desire (click on Add after entering a name), then click 
+            on OK to start the draw
+        </p>
 
-    <div class="namesList"></div>
+        <div class="userSection">
+            <div>
+                <input type="text" class="userInput">
+                <button class="add">Add</button>  
+                <button class="ok">OK</button>    
+            </div>
+            <div>
+                <div class="namesList"></div>
 
-    <p>Click on reset if you have made a mistake and need to do it again</p>
-    <button class="reset">Reset</button>
-
-    <div class="randomDraw"></div>
-
+                <p>Click on reset if you have made a mistake and need to do it again</p>
+                <button class="reset">Reset</button>    
+            </div>    
+        </div>
+        
+        <div class="randomDraw"></div>    
+    </div>
+    
     <script src="scripts.js"></script>
 </body>
 </html>

@@ -37,7 +37,7 @@ add.addEventListener('click', () => {
                     modify.disabled = false
 
                     const index = Array.from(nameItemContainer.parentNode.children).indexOf(nameItemContainer)
-                    names.slice(index, 1, toModify.value)
+                    names.splice(index, 1, toModify.value)
                 }
             })
         })
@@ -76,6 +76,10 @@ ok.addEventListener('click', () => {
         currentDraw.textContent = `${pair.name1} picked ${pair.name2}`
         randomDraw.append(currentDraw)
     })
+
+    namesList.textContent = ''
+    ok.disabled = true
+    add.disabled = true
 })
 
 reset.addEventListener('click', () => {

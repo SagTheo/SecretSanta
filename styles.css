@@ -1,11 +1,32 @@
 body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 70vw;
+    height: 100vh;
+    margin: auto;
     background-color: black;
     color: gainsboro;
     font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userSection {
+    display: flex;
+}
+
+h1 {
+    margin: 0;
+    padding: 1rem;
 }
 
 .userInput {
     padding: 0.3rem;
+    margin-bottom: 1rem;
 }
 
 .add, .ok, .reset {
