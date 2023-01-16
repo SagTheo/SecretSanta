@@ -18,8 +18,10 @@ add.addEventListener('click', () => {
         const nameItem = document.createElement('span')
         const modify = document.createElement('button')
 
+        nameItemContainer.setAttribute('class', 'nameItemContainer')
         nameItem.textContent = capitalised(userInput.value)
         modify.textContent = 'Modify'
+        modify.setAttribute('class', 'modify')
 
         modify.addEventListener('click', () => {
             modify.disabled = true
