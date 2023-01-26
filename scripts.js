@@ -75,7 +75,7 @@ ok.addEventListener('click', () => {
 
     pairs.forEach(pair => {
         const currentDraw = document.createElement('li')
-        currentDraw.textContent = `${pair.name1} picked ${pair.name2}`
+        currentDraw.textContent = `${capitalised(pair.name1)} picked ${capitalised(pair.name2)}`
         randomDraw.append(currentDraw)
     })
 
@@ -91,4 +91,7 @@ reset.addEventListener('click', () => {
 
     randomDraw.innerHTML = ''
     namesList.innerHTML = ''
+
+    ok.disabled = false
+    add.disabled = false
 })

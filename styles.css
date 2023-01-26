@@ -17,7 +17,10 @@ body {
 
 .userSection {
     display: flex;
-    align-items: center;
+}
+
+.input {
+    margin-top: 2rem;
 }
 
 .namesAndReset {
