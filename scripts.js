@@ -86,19 +86,26 @@ ok.addEventListener('click', () => {
     // Loop through the original array and create pairs with its copy
 
     const namesCopy = []
+    const usedIndices = []
 
     for (let i = 0; i < names.length; i++) {
-        let newIndex = i
+        const remainingIndices = names.slice()
+        remainingIndices.splice(i, 1)
 
-        while (newIndex === i) {
-            newIndex = Math.floor(Math.random() * names.length)
+        if (usedIndices.length > 0) {
+            usedIndices.forEach(item => remainingIndices.splice(remainingIndices.indexOf(item), 1))
+
+            namesCopy.push(remainingIndices[0])
+            usedIndices.push(remainingIndices[0])
+        } else {
+            namesCopy.push(remainingIndices[0])
+            usedIndices.push(remainingIndices[0])
         }
-
-        namesCopy.push(names[newIndex])
     }
 
     console.log(names)
     console.log(namesCopy)
+    // console.log(usedIndices)
 
     namesList.textContent = ''
     ok.disabled = true
