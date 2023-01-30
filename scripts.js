@@ -87,25 +87,41 @@ ok.addEventListener('click', () => {
 
     const namesCopy = []
     const usedIndices = []
+    let startPos = true
 
     for (let i = 0; i < names.length; i++) {
         const remainingIndices = names.slice()
         remainingIndices.splice(i, 1)
 
         if (usedIndices.length > 0) {
-            usedIndices.forEach(item => remainingIndices.splice(remainingIndices.indexOf(item), 1))
+            usedIndices.forEach(item => {
+                if (remainingIndices.includes(item)) {
+                    remainingIndices.splice(remainingIndices.indexOf(item), 1)
+                }
+            })
 
-            namesCopy.push(remainingIndices[0])
-            usedIndices.push(remainingIndices[0])
+            if (startPos) {
+                namesCopy.push(remainingIndices[0])
+                usedIndices.push(remainingIndices[0])
+
+                startPos = !startPos
+            } else {
+                namesCopy.push(remainingIndices[remainingIndices.length - 1])
+                usedIndices.push(remainingIndices[remainingIndices.length - 1])
+
+                startPos = !startPos
+            }
+
         } else {
             namesCopy.push(remainingIndices[0])
             usedIndices.push(remainingIndices[0])
+
+            startPos = !startPos
         }
     }
 
     console.log(names)
     console.log(namesCopy)
-    // console.log(usedIndices)
 
     namesList.textContent = ''
     ok.disabled = true
