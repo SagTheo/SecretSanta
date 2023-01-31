@@ -56,35 +56,6 @@ add.addEventListener('click', () => {
 
 
 ok.addEventListener('click', () => {
-    /*
-    names.forEach(name => {
-        const namesCopy = names.slice()
-        namesCopy.splice(names.indexOf(name), 1)
-
-        hasBeenPicked.forEach(picked => {
-            if (namesCopy.includes(picked)) {
-                namesCopy.splice(namesCopy.indexOf(picked), 1)
-            }
-        })
-
-        const randomIndex = Math.floor(Math.random() * namesCopy.length)
-        const pickedName = namesCopy[randomIndex]
-
-        pairs.push({name1: name, name2: pickedName})
-        hasBeenPicked.push(pickedName)
-    })
-
-    pairs.forEach(pair => {
-        const currentDraw = document.createElement('li')
-        currentDraw.textContent = `${capitalised(pair.name1)} picked ${capitalised(pair.name2)}`
-        randomDraw.append(currentDraw)
-    })
-    */
-
-    // Make a copy of the names array
-    // Shuffle it so that each item has a different index that in the original array
-    // Loop through the original array and create pairs with its copy
-
     const namesCopy = []
     const usedIndices = []
     let startPos = true
@@ -120,8 +91,12 @@ ok.addEventListener('click', () => {
         }
     }
 
-    console.log(names)
-    console.log(namesCopy)
+    for (let i = 0; i < names.length; i++) {
+        const drawItem = document.createElement('p')
+        drawItem.textContent = `${capitalised(names[i])} picked ${capitalised(namesCopy[i])}`
+
+        randomDraw.append(drawItem)
+    }
 
     namesList.textContent = ''
     ok.disabled = true
